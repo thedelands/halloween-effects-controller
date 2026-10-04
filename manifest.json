@@ -1,0 +1,25 @@
+{
+  "project": "Halloween Effects Controller",
+  "module": "Low-Fog Chiller Controller",
+  "version": "0.1.0",
+  "board": "Arduino Nano ESP32 ABX00083",
+  "created": "2026-07-11",
+  "contents": [
+    "BOM.csv",
+    "README.md",
+    "docs/01-safety-and-design-decisions.md",
+    "docs/02-system-architecture.md",
+    "docs/03-wiring-and-pin-map.md",
+    "docs/04-enclosure-layout.md",
+    "docs/05-cooler-module-plan.md",
+    "docs/06-bench-build-and-test-plan.md",
+    "docs/07-firmware-and-web-interface.md",
+    "docs/08-roadmap.md",
+    "firmware/data/index.html",
+    "firmware/include/fog_controller_config.example.h",
+    "firmware/platformio.ini",
+    "firmware/src/main.cpp",
+    "hardware/architecture.svg",
+    "hardware/wiring-overview.svg"
+  ]
+}

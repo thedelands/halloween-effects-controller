@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="780" viewBox="0 0 1400 780">
+  <style>
+    text { font-family: Arial, sans-serif; fill: #17202a; }
+    .h { font-size: 26px; font-weight: 700; }
+    .t { font-size: 17px; font-weight: 700; }
+    .s { font-size: 14px; }
+    .box { fill: #f7f8fa; stroke: #27364a; stroke-width: 2; }
+    .power { fill: #fff1df; }
+    .control { fill: #e9f4ff; }
+    .sensor { fill: #edf9ec; }
+    .future { fill: #f4ecf7; stroke-dasharray: 7 5; }
+    .line { stroke: #27364a; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    .dash { stroke: #7d3c98; stroke-width: 3; fill: none; stroke-dasharray: 7 5; marker-end: url(#future-arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#27364a"/></marker>
+    <marker id="future-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#7d3c98"/></marker>
+  </defs>
+
+  <text x="40" y="45" class="h">Halloween Effects Controller — System Architecture</text>
+
+  <rect x="45" y="95" width="190" height="85" rx="10" class="box power"/>
+  <text x="70" y="130" class="t">120 V AC / GFCI</text><text x="70" y="157" class="s">Outdoor-rated connection</text>
+  <rect x="285" y="95" width="220" height="85" rx="10" class="box power"/>
+  <text x="315" y="130" class="t">Approved 12 V supply</text><text x="315" y="157" class="s">External baseline</text>
+  <rect x="555" y="80" width="250" height="115" rx="10" class="box power"/>
+  <text x="592" y="115" class="t">WAGO Blocks A / B / C</text><text x="592" y="143" class="s">Four fused +12 V branches</text><text x="592" y="168" class="s">Five bridged common 0 V nets</text>
+
+  <rect x="900" y="65" width="210" height="100" rx="10" class="box power"/>
+  <text x="953" y="101" class="t">MOSFET A</text><text x="938" y="129" class="s">D6 PWM — active</text><text x="938" y="151" class="s">5 A fused branch</text>
+  <rect x="1180" y="65" width="175" height="100" rx="10" class="box power"/>
+  <text x="1212" y="101" class="t">12 V blower</text><text x="1208" y="129" class="s">MOS A OUT+/OUT−</text>
+
+  <rect x="900" y="200" width="210" height="85" rx="10" class="box future"/>
+  <text x="953" y="235" class="t">MOSFET B</text><text x="938" y="262" class="s">D9 — held off / future</text>
+  <rect x="1180" y="200" width="175" height="85" rx="10" class="box future"/>
+  <text x="1207" y="235" class="t">Future load B</text><text x="1207" y="262" class="s">Fuse removed</text>
+
+  <rect x="900" y="320" width="210" height="85" rx="10" class="box future"/>
+  <text x="953" y="355" class="t">MOSFET C</text><text x="934" y="382" class="s">D10 — held off / future</text>
+  <rect x="1180" y="320" width="175" height="85" rx="10" class="box future"/>
+  <text x="1207" y="355" class="t">Future load C</text><text x="1207" y="382" class="s">Fuse removed</text>
+
+  <rect x="555" y="295" width="250" height="100" rx="10" class="box power"/>
+  <text x="627" y="331" class="t">LM2596</text><text x="602" y="359" class="s">12 V → 7.0 V</text><text x="602" y="383" class="s">OUT+ directly to Nano VIN</text>
+
+  <rect x="555" y="480" width="250" height="135" rx="10" class="box control"/>
+  <text x="600" y="518" class="t">Arduino Nano ESP32</text><text x="593" y="548" class="s">Wi-Fi web UI · OTA · modes</text>
+  <text x="593" y="575" class="s">D6 / D9 / D10 outputs</text><text x="593" y="600" class="s">D4 1-Wire · A4/A5 I²C</text>
+
+  <rect x="45" y="475" width="230" height="95" rx="10" class="box sensor"/>
+  <text x="85" y="512" class="t">OLED + BME280</text><text x="85" y="540" class="s">3.3 V · A4 SDA · A5 SCL</text>
+  <rect x="45" y="615" width="230" height="95" rx="10" class="box sensor"/>
+  <text x="84" y="652" class="t">DS18B20 probes</text><text x="84" y="680" class="s">3.3 V · D4 1-Wire · 0 V</text>
+  <rect x="320" y="615" width="185" height="95" rx="10" class="box control"/>
+  <text x="357" y="652" class="t">Buttons</text><text x="347" y="680" class="s">D2 / D3 / D5 to 0 V</text>
+  <rect x="940" y="500" width="230" height="95" rx="10" class="box control"/>
+  <text x="981" y="537" class="t">Phone / laptop</text><text x="981" y="565" class="s">Local web dashboard</text>
+
+  <path d="M235 137 H285" class="line"/><path d="M505 137 H555" class="line"/>
+  <path d="M805 115 H900" class="line"/><path d="M1110 115 H1180" class="line"/>
+  <path d="M805 150 H850 V242 H900" class="dash"/><path d="M1110 242 H1180" class="dash"/>
+  <path d="M805 170 H830 V362 H900" class="dash"/><path d="M1110 362 H1180" class="dash"/>
+  <path d="M680 195 V295" class="line"/><path d="M680 395 V480" class="line"/>
+  <path d="M805 540 H860 V115 H900" class="line"/><path d="M805 565 H875 V242 H900" class="dash"/><path d="M805 590 H890 V362 H900" class="dash"/>
+  <path d="M555 530 H275" class="line"/><path d="M555 575 H295 V662 H275" class="line"/><path d="M555 595 H505" class="line"/>
+  <path d="M805 535 H940" class="line"/>
+
+  <text x="40" y="755" class="s">All DC devices share the bridged 0 V reference. The 7 V Nano VIN path remains electrically separate from the 3.3 V sensor distribution.</text>
+</svg>

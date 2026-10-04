@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1450" height="900" viewBox="0 0 1450 900">
+  <style>
+    text { font-family: Arial, sans-serif; fill: #17202a; }
+    .h { font-size: 26px; font-weight: 700; }
+    .t { font-size: 17px; font-weight: 700; }
+    .s { font-size: 14px; }
+    .tiny { font-size: 12px; }
+    .box { fill: #fafafa; stroke: #34495e; stroke-width: 2; }
+    .power { fill: #fadbd8; stroke: #922b21; stroke-width: 2; }
+    .ground { fill: #d6eaf8; stroke: #21618c; stroke-width: 2; }
+    .logic { fill: #d5f5e3; stroke: #1d8348; stroke-width: 2; }
+    .v33 { fill: #fcf3cf; stroke: #9a7d0a; stroke-width: 2; }
+    .note { fill: #fff6cc; stroke: #806b00; stroke-width: 2; }
+    .p { stroke: #c0392b; stroke-width: 4; fill: none; }
+    .n { stroke: #2c3e50; stroke-width: 4; fill: none; }
+    .v7 { stroke: #8e44ad; stroke-width: 4; fill: none; }
+    .sig { stroke: #1e8449; stroke-width: 3; fill: none; }
+  </style>
+
+  <text x="35" y="42" class="h">Controller wiring overview — as-built WAGO layout</text>
+
+  <rect x="35" y="80" width="190" height="100" rx="8" class="power"/>
+  <text x="58" y="116" class="t">12 V DC supply</text><text x="58" y="145" class="s">+12 V / 0 V</text><text x="58" y="166" class="tiny">external, dry location</text>
+
+  <rect x="295" y="65" width="280" height="135" rx="8" class="power"/>
+  <text x="317" y="98" class="t">Block A: +12V-PWR</text><text x="317" y="126" class="s">Four fused positive branches</text>
+  <text x="317" y="151" class="s">A/B/C → MOSFET VIN+</text><text x="317" y="176" class="s">D → LM2596 IN+; E ← supply +</text>
+
+  <rect x="295" y="240" width="280" height="150" rx="8" class="ground"/>
+  <text x="317" y="273" class="t">Common 0 V chain</text><text x="317" y="301" class="s">0V-PWR ═ 0V-A ═ 0V-B</text>
+  <text x="317" y="326" class="s">══════ 0V-C ═ 0V-D</text><text x="317" y="354" class="tiny">Power, controller, sensors, logic</text>
+  <text x="317" y="376" class="tiny">Nano is a branch—not the ground source</text>
+
+  <rect x="665" y="65" width="240" height="145" rx="8" class="power"/>
+  <text x="696" y="98" class="t">3 MOSFET modules</text><text x="690" y="128" class="s">A: D6 → blower (active)</text>
+  <text x="690" y="153" class="s">B: D9 → future load</text><text x="690" y="178" class="s">C: D10 → future load</text>
+  <text x="690" y="199" class="tiny">B/C fuses remain removed</text>
+
+  <rect x="1010" y="65" width="205" height="105" rx="8" class="box"/>
+  <text x="1050" y="102" class="t">Blower A</text><text x="1043" y="132" class="s">MOS A OUT+ / OUT−</text><text x="1043" y="154" class="tiny">load does not use 0 V WAGO</text>
+
+  <rect x="665" y="270" width="240" height="120" rx="8" class="box"/>
+  <text x="735" y="305" class="t">LM2596</text><text x="714" y="335" class="s">12 V in → 7.0 V out</text><text x="699" y="363" class="tiny">Verify before connecting Nano</text>
+
+  <rect x="1010" y="245" width="245" height="190" rx="8" class="logic"/>
+  <text x="1065" y="281" class="t">Nano ESP32</text><text x="1042" y="310" class="s">VIN ← LM2596 OUT+ (7 V)</text>
+  <text x="1042" y="335" class="s">3.3V → sensor power blocks</text><text x="1042" y="360" class="s">D4 → DS18B20 data</text>
+  <text x="1042" y="385" class="s">A4 → SDA; A5 → SCL</text><text x="1042" y="410" class="s">D6 / D9 / D10 → MOS A/B/C</text>
+
+  <rect x="35" y="505" width="310" height="150" rx="8" class="v33"/>
+  <text x="58" y="540" class="t">3.3 V distribution</text><text x="58" y="570" class="s">3V3-A ═ 3V3-B</text>
+  <text x="58" y="597" class="s">OLED VCC; BME VCC + CSB</text><text x="58" y="624" class="s">DS18B20 red / VCC</text>
+  <text x="58" y="646" class="tiny">Never connect LM2596 7 V here</text>
+
+  <rect x="400" y="505" width="300" height="150" rx="8" class="logic"/>
+  <text x="424" y="540" class="t">D4 / 1-WIRE</text><text x="424" y="570" class="s">Nano D4 + probe yellow</text>
+  <text x="424" y="597" class="s">One 4.7 kΩ pull-up to 3V3-A</text><text x="424" y="624" class="tiny">Second probe uses reserved slots</text>
+
+  <rect x="755" y="505" width="300" height="150" rx="8" class="logic"/>
+  <text x="779" y="540" class="t">I²C: SDA and SCL</text><text x="779" y="570" class="s">Nano A4/SDA → OLED + BME280</text>
+  <text x="779" y="597" class="s">Nano A5/SCL → OLED + BME280</text><text x="779" y="624" class="tiny">A4 is not D4; A5 is not D5</text>
+
+  <rect x="1110" y="505" width="300" height="150" rx="8" class="logic"/>
+  <text x="1134" y="540" class="t">Momentary buttons</text><text x="1134" y="570" class="s">D2 Start / Stop</text>
+  <text x="1134" y="597" class="s">D3 Mode; D5 Test</text><text x="1134" y="624" class="tiny">Other sides → 0V-D Slot C</text>
+
+  <path d="M225 110 H295" class="p"/><path d="M225 158 H260 V315 H295" class="n"/>
+  <path d="M575 105 H665" class="p"/><path d="M575 315 H630 V180 H665" class="n"/>
+  <path d="M905 115 H1010" class="p"/><path d="M905 160 H970 V145 H1010" class="n"/>
+  <path d="M575 160 V330 H665" class="p"/><path d="M575 340 H665" class="n"/>
+  <path d="M905 315 H1010" class="v7"/><path d="M905 365 H965 V405 H1010" class="n"/>
+  <path d="M1132 435 V468 H190 V505" class="sig"/>
+  <path d="M1132 435 V475 H550 V505" class="sig"/>
+  <path d="M1132 435 V482 H905 V505" class="sig"/>
+  <path d="M1178 435 V505" class="sig"/>
+
+  <rect x="35" y="710" width="1375" height="135" rx="8" class="note"/>
+  <text x="58" y="745" class="t">Critical checks before power-up</text>
+  <text x="58" y="777" class="s">1. LM2596 OUT+ goes directly to Nano VIN; it is not connected to either 3V3 block.</text>
+  <text x="58" y="804" class="s">2. MOSFET logic GND connects to 0V-C, while every motor/load negative connects to its own MOSFET OUT−.</text>
+  <text x="760" y="777" class="s">3. Every positive 12 V branch is fused after +12V-PWR.</text>
+  <text x="760" y="804" class="s">4. BME280 CSB → 3.3 V and SDO → 0 V; use separate WAGO slots.</text>
+  <text x="58" y="831" class="tiny">Refer to wago-block-map.svg and docs/03-wiring-and-pin-map.md for the authoritative slot-by-slot connections.</text>
+</svg>

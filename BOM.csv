@@ -1,0 +1,31 @@
+Category,Item,Selected/Target,Quantity,Status,Notes
+Controller,Microcontroller,Arduino Nano ESP32 with Headers ABX00083,1,Selected,ESP32-S3
+Controller,Display,HiLetgo 0.96 inch SSD1306 128x64 I2C white OLED,1,Selected,Expected I2C address 0x3C
+Sensors,Ambient sensor,BME280 I2C/SPI 3.3V module,1,Selected,Must be true BME280 with humidity
+Sensors,Temperature probes,DS18B20 waterproof 5 m probes 5-pack,1 pack,Selected,Use two initially
+Sensors,Pull-up resistor,4.7 kOhm 1/4 W resistor,1,Selected,One per 1-Wire bus
+Power,Power adapter,ALITOVE 12 V 10 A 120 W adapter,1,Selected,Tested baseline; keep external dry and ventilated
+Power,Future cabinet supply,Cabinet-rated 12 V DIN-rail AC/DC supply,1,Deferred,Requires covered mains compartment and qualified installation
+Power,Buck converter,LM2596 adjustable module with voltage display,1,Selected,Set to 7.0 V and feed Nano VIN
+Power,Fuse holders,14 AWG ATC/ATO inline holders,4,Selected,One for each of three MOSFET branches and one for the controller
+Power,Blower fuse,5 A ATC/ATO blade fuse,1,Selected,
+Power,Controller fuse,2 A or 3 A ATC/ATO blade fuse,1,Required,May need separate purchase
+Power,Power wire,16 AWG 2-conductor tinned stranded copper,1 roll,Selected,
+Power,Signal wire,22-24 AWG stranded hookup wire assortment,1,Recommended,For sensors and buttons
+Power,Low-voltage distribution,WAGO 221-415,8,Installed,Block A: +12 V and three 0 V; Block B: two 0 V plus D4 and 3.3 V
+Power,Low-voltage distribution,WAGO 221-413,3,Installed,Block C: 3.3 V expansion; SDA; SCL
+Power,WAGO mounting carriers,DIN-35 or panel-mount carriers,11,Required,One secured mounting position per WAGO connector
+Power,Terminal blocks,DIN rail combined terminal block kit,1,Replaced,Bridged red/blue distribution replaced by WAGO map
+Power,Ferrule kit,Preciva AWG 28-5 ferrule crimper kit,1,Selected,
+Motor,Blower,SEAFLO 3 inch 12 V 130 CFM inline blower,1,Selected,Approx 2.5 A nominal
+Motor,Driver,High-power MOSFET trigger switch module 5-36 V,3,Selected,MOSFET A drives blower; B and C are reserved and held off
+Controls,Buttons,12 mm waterproof momentary normally-open buttons,3,Selected,Start Mode Test
+Mechanical,Duct,HG Power 3 inch 16 ft flexible aluminum duct,1,Selected,Use shortest practical runs
+Mechanical,Enclosure,IP65 ABS 13x13x5 enclosure with 11.6x11.6x4.3 usable space,1,Selected,Includes mounting plate one DIN rail and cable glands
+Mechanical,Cable glands,M12/M16/M20 mixed IP68 set,1,Required,Match actual cable diameters
+Mechanical,Cooler,50-60 quart hard cooler with drain,1,Deferred,Purchase on sale
+Mechanical,Mounting hardware,Standoffs DIN mounts stainless hardware,1 set,Required,
+Mechanical,Sealing,Adhesive-lined heat shrink and silicone gasket material,1 set,Required,
+Future,Fog machine,Wired-remote model,1,Deferred,Requires isolated trigger design
+Future,Fog fluid,Commercial manufacturer-compatible fluid,1,Deferred,Use for initial testing
+Experimental,Vegetable glycerin,USP grade 1 gallon,1,Selected,Do not use until machine compatibility is assessed

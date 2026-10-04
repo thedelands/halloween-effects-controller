@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1040" viewBox="0 0 1500 1040">
+  <style>
+    text { font-family: Arial, sans-serif; fill: #17202a; }
+    .title { font-size: 28px; font-weight: 700; }
+    .subtitle { font-size: 15px; fill: #4d5656; }
+    .blockTitle { font-size: 21px; font-weight: 700; }
+    .net { font-size: 17px; font-weight: 700; }
+    .slot { font-size: 13px; }
+    .warning { font-size: 15px; font-weight: 700; fill: #922b21; }
+    .block { fill: #f8f9f9; stroke: #34495e; stroke-width: 3; }
+    .p12 { fill: #fadbd8; stroke: #922b21; stroke-width: 2; }
+    .gnd { fill: #d6eaf8; stroke: #21618c; stroke-width: 2; }
+    .v33 { fill: #fcf3cf; stroke: #9a7d0a; stroke-width: 2; }
+    .data { fill: #d5f5e3; stroke: #1d8348; stroke-width: 2; }
+    .direct { fill: #f4ecf7; stroke: #7d3c98; stroke-width: 2; }
+  </style>
+
+  <text x="45" y="45" class="title">As-built WAGO block and device connection map</text>
+  <text x="45" y="72" class="subtitle">Slots are shown in the recorded A-to-E / A-to-C order. One conductor per lever. Disconnect USB and 12 V before rewiring.</text>
+
+  <rect x="35" y="95" width="1430" height="268" rx="10" class="block"/>
+  <text x="55" y="126" class="blockTitle">BLOCK A — four 221-415 connectors / 20 positions</text>
+
+  <g transform="translate(55 145)">
+    <rect width="335" height="195" rx="8" class="p12"/><text x="15" y="27" class="net">+12V-PWR</text>
+    <text x="15" y="53" class="slot">A  Fuse A input → MOSFET A VIN+</text><text x="15" y="78" class="slot">B  Fuse B input → MOSFET B VIN+</text>
+    <text x="15" y="103" class="slot">C  Fuse C input → MOSFET C VIN+</text><text x="15" y="128" class="slot">D  Controller fuse input → LM2596 IN+</text>
+    <text x="15" y="153" class="slot">E  +12 V power-supply positive</text><text x="15" y="181" class="warning">All four outputs pass through fuses</text>
+  </g>
+  <g transform="translate(405 145)">
+    <rect width="335" height="195" rx="8" class="gnd"/><text x="15" y="27" class="net">0V-PWR</text>
+    <text x="15" y="53" class="slot">A  Power-supply negative / 0 V</text><text x="15" y="78" class="slot">B  MOSFET A VIN−</text>
+    <text x="15" y="103" class="slot">C  MOSFET B VIN−</text><text x="15" y="128" class="slot">D  MOSFET C VIN−</text>
+    <text x="15" y="153" class="slot">E  Bridge → 0V-A E</text>
+  </g>
+  <g transform="translate(755 145)">
+    <rect width="335" height="195" rx="8" class="gnd"/><text x="15" y="27" class="net">0V-A</text>
+    <text x="15" y="53" class="slot">A  Bridge → 0V-B E</text><text x="15" y="78" class="slot">B  Nano GND</text>
+    <text x="15" y="103" class="slot">C  LM2596 OUT−</text><text x="15" y="128" class="slot">D  LM2596 IN−</text>
+    <text x="15" y="153" class="slot">E  Bridge from 0V-PWR E</text>
+  </g>
+  <g transform="translate(1105 145)">
+    <rect width="335" height="195" rx="8" class="gnd"/><text x="15" y="27" class="net">0V-B</text>
+    <text x="15" y="53" class="slot">A  Bridge → 0V-C A</text><text x="15" y="78" class="slot">B  OLED GND</text>
+    <text x="15" y="103" class="slot">C  BME280 SDO</text><text x="15" y="128" class="slot">D  BME280 GND</text>
+    <text x="15" y="153" class="slot">E  Bridge from 0V-A A</text>
+  </g>
+
+  <rect x="35" y="385" width="1430" height="268" rx="10" class="block"/>
+  <text x="55" y="416" class="blockTitle">BLOCK B — four 221-415 connectors / 20 positions</text>
+  <g transform="translate(55 435)">
+    <rect width="335" height="195" rx="8" class="gnd"/><text x="15" y="27" class="net">0V-C</text>
+    <text x="15" y="53" class="slot">A  Bridge from 0V-B A</text><text x="15" y="78" class="slot">B  MOSFET A logic GND</text>
+    <text x="15" y="103" class="slot">C  MOSFET B logic GND</text><text x="15" y="128" class="slot">D  MOSFET C logic GND</text>
+    <text x="15" y="153" class="slot">E  Bridge → 0V-D A</text><text x="15" y="181" class="warning">Logic GND — never MOSFET OUT−</text>
+  </g>
+  <g transform="translate(405 435)">
+    <rect width="335" height="195" rx="8" class="gnd"/><text x="15" y="27" class="net">0V-D</text>
+    <text x="15" y="53" class="slot">A  Bridge from 0V-C E</text><text x="15" y="78" class="slot">B  Cooler probe black / GND</text>
+    <text x="15" y="103" class="slot">C  Three-button common ground</text><text x="15" y="128" class="slot">D  Future probe black / GND</text>
+    <text x="15" y="153" class="slot">E  Spare low-current 0 V</text>
+  </g>
+  <g transform="translate(755 435)">
+    <rect width="335" height="195" rx="8" class="data"/><text x="15" y="27" class="net">D4 / 1-WIRE</text>
+    <text x="15" y="53" class="slot">A  Nano D4</text><text x="15" y="78" class="slot">B  Cooler probe yellow / data</text>
+    <text x="15" y="103" class="slot">C  Future probe yellow / data</text><text x="15" y="128" class="slot">D  Spare data connection</text>
+    <text x="15" y="153" class="slot">E  4.7 kΩ resistor → 3V3-A A</text>
+  </g>
+  <g transform="translate(1105 435)">
+    <rect width="335" height="195" rx="8" class="v33"/><text x="15" y="27" class="net">3V3-A</text>
+    <text x="15" y="53" class="slot">A  4.7 kΩ resistor from D4 E</text><text x="15" y="78" class="slot">B  OLED VCC</text>
+    <text x="15" y="103" class="slot">C  Nano 3.3V — NOT VIN</text><text x="15" y="128" class="slot">D  BME280 CSB</text>
+    <text x="15" y="153" class="slot">E  Bridge → 3V3-B A</text>
+  </g>
+
+  <rect x="35" y="675" width="1070" height="268" rx="10" class="block"/>
+  <text x="55" y="706" class="blockTitle">BLOCK C — three 221-413 connectors / 9 positions</text>
+  <g transform="translate(55 725)">
+    <rect width="335" height="195" rx="8" class="v33"/><text x="15" y="27" class="net">3V3-B</text>
+    <text x="15" y="53" class="slot">A  Bridge from 3V3-A E</text><text x="15" y="78" class="slot">B  Cooler probe red / VCC</text>
+    <text x="15" y="103" class="slot">C  BME280 VCC</text><text x="15" y="138" class="warning">BME VCC and CSB use separate slots</text>
+  </g>
+  <g transform="translate(405 725)">
+    <rect width="335" height="195" rx="8" class="data"/><text x="15" y="27" class="net">SDA</text>
+    <text x="15" y="53" class="slot">A  BME280 SDA / SDI</text><text x="15" y="78" class="slot">B  OLED SDA</text>
+    <text x="15" y="103" class="slot">C  Nano A4 / SDA</text><text x="15" y="138" class="warning">Nano A4 — not D4</text>
+  </g>
+  <g transform="translate(755 725)">
+    <rect width="335" height="195" rx="8" class="data"/><text x="15" y="27" class="net">SCL</text>
+    <text x="15" y="53" class="slot">A  BME280 SCL / SCK</text><text x="15" y="78" class="slot">B  OLED SCL</text>
+    <text x="15" y="103" class="slot">C  Nano A5 / SCL</text><text x="15" y="138" class="warning">Nano A5 — not D5</text>
+  </g>
+
+  <rect x="1125" y="675" width="340" height="268" rx="10" class="direct"/>
+  <text x="1145" y="706" class="blockTitle">DIRECT CONNECTIONS</text>
+  <text x="1145" y="743" class="slot">LM2596 OUT+ (7.0 V) → Nano VIN</text>
+  <text x="1145" y="771" class="slot">Nano D6 → MOSFET A TRIG/PWM</text>
+  <text x="1145" y="799" class="slot">Nano D9 → MOSFET B TRIG/PWM</text>
+  <text x="1145" y="827" class="slot">Nano D10 → MOSFET C TRIG/PWM</text>
+  <text x="1145" y="855" class="slot">D2 / D3 / D5 → three buttons</text>
+  <text x="1145" y="883" class="slot">MOSFET OUT+/OUT− → each load</text>
+  <text x="1145" y="915" class="warning">7 V must not enter a 3V3 block</text>
+
+  <text x="45" y="986" class="subtitle">Common 0 V bridge: 0V-PWR E → 0V-A E; 0V-A A → 0V-B E; 0V-B A → 0V-C A; 0V-C E → 0V-D A.</text>
+  <text x="45" y="1013" class="subtitle">MOSFET B and C remain reserved and held off in firmware; leave their positive branch fuses removed until commissioned.</text>
+</svg>

@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860">
+  <style>
+    text { font-family: Arial, sans-serif; fill: #17202a; }
+    .title { font-size: 24px; font-weight: 700; }
+    .subtitle { font-size: 14px; fill: #4d5656; }
+    .axis { font-size: 11px; fill: #5d6d7e; }
+    .label { font-size: 13px; font-weight: 700; }
+    .small { font-size: 11px; }
+    .tiny { font-size: 9px; }
+    .plate { fill: #fdfefe; stroke: #273746; stroke-width: 3; }
+    .grid { stroke: #d5d8dc; stroke-width: 1; }
+    .halfgrid { stroke: #edf0f2; stroke-width: 1; }
+    .duct { fill: #d6dbdf; stroke: #626567; stroke-width: 2; }
+    .rail { fill: #bdc3c7; stroke: #566573; stroke-width: 2; }
+    .wago12 { fill: #f5b7b1; stroke: #922b21; stroke-width: 2; }
+    .wago0 { fill: #aed6f1; stroke: #21618c; stroke-width: 2; }
+    .wago3 { fill: #f9e79f; stroke: #9a7d0a; stroke-width: 2; }
+    .wagodata { fill: #abebc6; stroke: #1d8348; stroke-width: 2; }
+    .module { fill: #d5f5e3; stroke: #196f3d; stroke-width: 2; }
+    .power { fill: #fadbd8; stroke: #943126; stroke-width: 2; }
+    .future { fill: #f4ecf7; stroke: #7d3c98; stroke-width: 2; stroke-dasharray: 7 5; }
+    .door { fill: #eaf2f8; stroke: #2e86c1; stroke-width: 2; stroke-dasharray: 6 4; }
+    .gland { fill: #566573; stroke: #17202a; stroke-width: 2; }
+    .note { fill: #fffde7; stroke: #b7950b; stroke-width: 2; }
+    .mount { fill: #fff; stroke: #34495e; stroke-width: 1.5; }
+    .route12 { fill: none; stroke: #c0392b; stroke-width: 3; marker-end: url(#arrow-red); }
+    .route0 { fill: none; stroke: #2c3e50; stroke-width: 3; marker-end: url(#arrow-dark); }
+    .routesig { fill: none; stroke: #1e8449; stroke-width: 3; marker-end: url(#arrow-green); }
+  </style>
+  <defs>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#c0392b"/></marker>
+    <marker id="arrow-dark" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#2c3e50"/></marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#1e8449"/></marker>
+    <pattern id="slots-v" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#d6dbdf"/><path d="M2 0v8 M8 0v8" stroke="#fff" stroke-width="3"/></pattern>
+    <pattern id="slots-h" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#d6dbdf"/><path d="M0 2h8 M0 8h8" stroke="#fff" stroke-width="3"/></pattern>
+  </defs>
+
+  <text x="50" y="34" class="title">Low-voltage controller — mounting-grid layout</text>
+  <text x="50" y="55" class="subtitle">11.6 × 11.6 in usable plate • bottom cable entry • dimensions are planning coordinates, not a drilling template</text>
+
+  <!-- 60 px represents one inch. Plate origin is 50,80. -->
+  <rect x="50" y="80" width="696" height="696" rx="4" class="plate"/>
+
+  <!-- half-inch and one-inch grid -->
+  <g>
+    <path d="M80 80V776 M140 80V776 M200 80V776 M260 80V776 M320 80V776 M380 80V776 M440 80V776 M500 80V776 M560 80V776 M620 80V776 M680 80V776" class="grid"/>
+    <path d="M110 80V776 M170 80V776 M230 80V776 M290 80V776 M350 80V776 M410 80V776 M470 80V776 M530 80V776 M590 80V776 M650 80V776 M710 80V776" class="halfgrid"/>
+    <path d="M50 110H746 M50 170H746 M50 230H746 M50 290H746 M50 350H746 M50 410H746 M50 470H746 M50 530H746 M50 590H746 M50 650H746 M50 710H746 M50 770H746" class="grid"/>
+    <path d="M50 140H746 M50 200H746 M50 260H746 M50 320H746 M50 380H746 M50 440H746 M50 500H746 M50 560H746 M50 620H746 M50 680H746 M50 740H746" class="halfgrid"/>
+  </g>
+  <g class="axis">
+    <text x="47" y="795">0</text><text x="106" y="795">1</text><text x="166" y="795">2</text><text x="226" y="795">3</text><text x="286" y="795">4</text><text x="346" y="795">5</text><text x="406" y="795">6</text><text x="466" y="795">7</text><text x="526" y="795">8</text><text x="586" y="795">9</text><text x="642" y="795">10</text><text x="702" y="795">11 in</text>
+    <text x="27" y="86">0</text><text x="27" y="146">1</text><text x="27" y="206">2</text><text x="27" y="266">3</text><text x="27" y="326">4</text><text x="27" y="386">5</text><text x="27" y="446">6</text><text x="27" y="506">7</text><text x="27" y="566">8</text><text x="27" y="626">9</text><text x="21" y="686">10</text><text x="21" y="746">11</text>
+  </g>
+
+  <!-- Three duct sections: approximately 10.2 + 10.2 + 8.7 inches. -->
+  <rect x="76" y="101" width="52" height="522" class="duct" fill="url(#slots-h)"/>
+  <text x="88" y="370" class="small" transform="rotate(-90 88 370)">1 × 1 in slotted duct • 8.7 in</text>
+  <rect x="132" y="101" width="588" height="52" class="duct" fill="url(#slots-v)"/>
+  <text x="315" y="132" class="small">TOP DUCT • 9.8 in</text>
+  <rect x="132" y="416" width="588" height="52" class="duct" fill="url(#slots-v)"/>
+  <text x="292" y="447" class="small">POWER / SIGNAL DUCT • 9.8 in</text>
+
+  <!-- WAGO panel-mount carrier bank: actual physical Blocks A, B, and C -->
+  <text x="145" y="177" class="label">BLOCK A • four 221-415 connectors</text>
+  <rect x="145" y="190" width="94" height="48" rx="5" class="wago12"/><text x="156" y="211" class="label">+12V-PWR</text><text x="159" y="229" class="tiny">221-415</text>
+  <rect x="247" y="190" width="94" height="48" rx="5" class="wago0"/><text x="257" y="211" class="label">0V-PWR</text><text x="261" y="229" class="tiny">221-415</text>
+  <rect x="349" y="190" width="94" height="48" rx="5" class="wago0"/><text x="373" y="211" class="label">0V-A</text><text x="363" y="229" class="tiny">221-415</text>
+  <rect x="451" y="190" width="94" height="48" rx="5" class="wago0"/><text x="475" y="211" class="label">0V-B</text><text x="465" y="229" class="tiny">221-415</text>
+  <text x="145" y="249" class="label">BLOCK B • four 221-415 connectors</text>
+  <rect x="145" y="258" width="94" height="48" rx="5" class="wago0"/><text x="169" y="279" class="label">0V-C</text><text x="159" y="297" class="tiny">221-415</text>
+  <rect x="247" y="258" width="94" height="48" rx="5" class="wago0"/><text x="271" y="279" class="label">0V-D</text><text x="261" y="297" class="tiny">221-415</text>
+  <rect x="349" y="258" width="94" height="48" rx="5" class="wagodata"/><text x="381" y="279" class="label">D4</text><text x="363" y="297" class="tiny">1-WIRE • 415</text>
+  <rect x="451" y="258" width="94" height="48" rx="5" class="wago3"/><text x="467" y="279" class="label">3V3-A</text><text x="465" y="297" class="tiny">221-415</text>
+  <text x="145" y="325" class="label">BLOCK C • three 221-413 connectors</text>
+  <rect x="145" y="334" width="94" height="48" rx="5" class="wago3"/><text x="161" y="355" class="label">3V3-B</text><text x="159" y="373" class="tiny">221-413</text>
+  <rect x="247" y="334" width="94" height="48" rx="5" class="wagodata"/><text x="276" y="355" class="label">SDA</text><text x="261" y="373" class="tiny">221-413</text>
+  <rect x="349" y="334" width="94" height="48" rx="5" class="wagodata"/><text x="378" y="355" class="label">SCL</text><text x="363" y="373" class="tiny">221-413</text>
+
+  <!-- Supplied rail and Nano adapter -->
+  <rect x="553" y="273" width="161" height="18" class="rail"/>
+  <rect x="573" y="190" width="121" height="183" rx="5" class="module"/>
+  <circle cx="586" cy="203" r="4" class="mount"/><circle cx="681" cy="203" r="4" class="mount"/><circle cx="586" cy="360" r="4" class="mount"/><circle cx="681" cy="360" r="4" class="mount"/>
+  <text x="590" y="227" class="label">NANO ESP32</text><text x="584" y="247" class="small">terminal adapter</text>
+  <rect x="601" y="263" width="65" height="79" rx="4" fill="#82e0aa" stroke="#196f3d" stroke-width="2"/>
+  <text x="612" y="288" class="small">Nano</text><text x="607" y="306" class="small">USB-C ↑</text>
+  <path d="M616 316 q18 16 36 0 M622 323 q12 10 24 0 M629 331 q5 4 10 0" fill="none" stroke="#1b4f72" stroke-width="2"/>
+  <text x="578" y="354" class="tiny">ANTENNA → ABS WALL</text>
+
+  <!-- Power hardware below center duct -->
+  <text x="145" y="493" class="label">High-current 12 V zone</text>
+  <rect x="145" y="505" width="154" height="27" rx="10" class="power"/><text x="162" y="523" class="small">CONTROLLER • 2–3 A</text>
+  <rect x="145" y="538" width="154" height="27" rx="10" class="power"/><text x="171" y="556" class="small">MOSFET A • 5 A</text>
+  <rect x="145" y="571" width="154" height="27" rx="10" class="power"/><text x="157" y="589" class="small">MOSFET B • SIZE LOAD</text>
+  <rect x="145" y="604" width="154" height="27" rx="10" class="power"/><text x="157" y="622" class="small">MOSFET C • SIZE LOAD</text>
+  <text x="145" y="644" class="tiny">Secure all four holders with screw-mounted P-clamps</text>
+
+  <rect x="315" y="510" width="122" height="108" rx="5" class="module"/>
+  <circle cx="327" cy="522" r="4" class="mount"/><circle cx="425" cy="522" r="4" class="mount"/><circle cx="327" cy="606" r="4" class="mount"/><circle cx="425" cy="606" r="4" class="mount"/>
+  <text x="347" y="540" class="label">LM2596</text><text x="333" y="559" class="small">12 V → 7.0 V</text><rect x="349" y="571" width="55" height="24" fill="#212f3d" stroke="#000"/><text x="358" y="588" fill="#e74c3c" class="small">7.00</text><text x="328" y="612" class="tiny">adjuster accessible</text>
+
+  <rect x="449" y="510" width="78" height="108" rx="5" class="module"/>
+  <text x="460" y="539" class="label">MOS A</text><text x="465" y="558" class="small">D6</text><text x="455" y="580" class="tiny">BLOWER</text><text x="456" y="603" class="tiny">ACTIVE</text>
+  <rect x="536" y="510" width="78" height="108" rx="5" class="module"/>
+  <text x="547" y="539" class="label">MOS B</text><text x="552" y="558" class="small">D9</text><text x="545" y="580" class="tiny">FUTURE</text><text x="546" y="603" class="tiny">FUSE OUT</text>
+  <rect x="623" y="510" width="78" height="108" rx="5" class="module"/>
+  <text x="634" y="539" class="label">MOS C</text><text x="635" y="558" class="small">D10</text><text x="632" y="580" class="tiny">FUTURE</text><text x="633" y="603" class="tiny">FUSE OUT</text>
+
+  <!-- Future space and lid harness landing -->
+  <rect x="145" y="655" width="329" height="73" rx="5" class="future"/>
+  <text x="181" y="681" class="label">FUTURE LOAD CABLE LANDING</text><text x="167" y="702" class="small">MOSFET B/C output cables and strain relief</text><text x="192" y="719" class="tiny">Do not place exposed 120 V equipment here</text>
+  <rect x="504" y="655" width="190" height="73" rx="5" class="door"/>
+  <text x="531" y="681" class="label">LID HARNESS LOOP</text><text x="522" y="701" class="small">OLED + 3 buttons</text><text x="520" y="719" class="tiny">flexible service loop + strain relief</text>
+
+  <!-- Bottom cable glands -->
+  <circle cx="165" cy="756" r="14" class="gland"/><circle cx="290" cy="756" r="14" class="gland"/><circle cx="435" cy="756" r="14" class="gland"/><circle cx="610" cy="756" r="14" class="gland"/>
+  <text x="140" y="750" class="tiny" fill="#fff">12 V</text><text x="142" y="762" class="tiny" fill="#fff">INPUT</text>
+  <text x="269" y="750" class="tiny" fill="#fff">BLOWER</text><text x="273" y="762" class="tiny" fill="#fff">OUTPUT</text>
+  <text x="414" y="750" class="tiny" fill="#fff">PROBES</text><text x="416" y="762" class="tiny" fill="#fff">2 × DS</text>
+  <text x="593" y="750" class="tiny" fill="#fff">BME280</text><text x="596" y="762" class="tiny" fill="#fff">EXTERNAL</text>
+
+  <!-- Simplified route cues -->
+  <path d="M165 741 V635 H128 V218 H145" class="route12"/>
+  <path d="M192 246 H128 V442 H145" class="route12"/>
+  <path d="M294 246 H128 V454 H145" class="route0"/>
+  <path d="M633 373 V416" class="routesig"/>
+  <path d="M599 618 V655" class="routesig"/>
+
+  <!-- Legend / installation notes -->
+  <text x="785" y="94" class="title">What mounts where</text>
+  <rect x="785" y="112" width="374" height="321" rx="7" class="note"/>
+  <text x="806" y="142" class="label">MOUNTING PLATE</text>
+  <text x="806" y="165" class="small">• WAGO Blocks A/B/C in 4 + 4 + 3 groups</text>
+  <text x="806" y="185" class="small">• supplied DIN rail + Nano terminal adapter</text>
+  <text x="806" y="205" class="small">• four inline fuse holders in P-clamps</text>
+  <text x="806" y="225" class="small">• LM2596 and three MOSFETs on carriers</text>
+  <text x="806" y="245" class="small">• three pieces of 1 × 1 in slotted duct</text>
+  <text x="806" y="278" class="label">ENCLOSURE LID</text>
+  <text x="806" y="301" class="small">• OLED behind gasketed viewing window</text>
+  <text x="806" y="321" class="small">• Start, Mode, and Test buttons</text>
+  <text x="806" y="354" class="label">OUTSIDE ENCLOSURE</text>
+  <text x="806" y="377" class="small">• dry, ventilated 12 V power adapter</text>
+  <text x="806" y="397" class="small">• BME280 shield, two probes, and blower</text>
+  <text x="806" y="417" class="small">• all cables enter through sized glands</text>
+
+  <rect x="785" y="453" width="374" height="228" rx="7" class="note"/>
+  <text x="806" y="483" class="label">BEFORE DRILLING</text>
+  <text x="806" y="507" class="small">1. Print paper outlines at actual component size.</text>
+  <text x="806" y="528" class="small">2. Confirm lid, USB-C, fuse, screw, and terminal access.</text>
+  <text x="806" y="549" class="small">3. Keep Nano antenna ≥ 0.6–0.8 in from metal/wires.</text>
+  <text x="806" y="570" class="small">4. Keep motor conductors away from I²C/1-Wire.</text>
+  <text x="806" y="591" class="small">5. Deburr holes and remove every metal shaving.</text>
+  <text x="806" y="612" class="small">6. Add labels before terminating conductors.</text>
+  <text x="806" y="645" class="small" font-weight="700">The grid is conceptual. Measure purchased carriers</text>
+  <text x="806" y="664" class="small" font-weight="700">and modules before marking mounting holes.</text>
+
+  <g transform="translate(785 710)">
+    <rect x="0" y="0" width="24" height="16" class="wago12"/><text x="34" y="13" class="small">12 V</text>
+    <rect x="95" y="0" width="24" height="16" class="wago0"/><text x="129" y="13" class="small">0 V</text>
+    <rect x="190" y="0" width="24" height="16" class="wago3"/><text x="224" y="13" class="small">3.3 V</text>
+    <rect x="285" y="0" width="24" height="16" class="wagodata"/><text x="319" y="13" class="small">signals</text>
+  </g>
+</svg>
